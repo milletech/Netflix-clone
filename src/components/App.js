@@ -1,8 +1,9 @@
-import './App.css';
+import '../styles/App.css';
 import Row from './Row';
-import requests from "./requests";
+import requests from "../requests";
 import Banner from './Banner';
 import Nav from './Nav';
+import Footer from './Footer';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
       <Row title="Horror Movies" fetchUrl={requests.fetchHorrorMovies}/>
       <Row title="Romance Movies" fetchUrl={requests.fetchRomanceMovies}/>
       <Row title="Documantaries" fetchUrl={requests.fetchDocumantaries}/>
+      <Footer/>
     </div>
   );
 }
