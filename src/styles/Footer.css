@@ -32,3 +32,56 @@ ul li a{
 ul li a:hover{
     text-decoration: underline;
 }
+
+@media only screen and (max-width:375px){
+    .footer{
+        margin:1.3rem;
+        padding: 1px;
+        
+    }
+    .footer__main{
+       display:grid;
+       grid-template-columns: repeat(2,10rem);
+       grid-template-rows: repeat(2, 8rem);
+       grid-gap: .6rem;
+       justify-content: initial;
+       margin-bottom: 2rem;
+       
+    }
+    ul{
+        margin:1rem 0;
+        width: 9rem;
+    }
+    ul li{
+        margin-bottom: 1px;
+    }
+    ul li a{
+        font-size: .9rem;
+    }
+}
+@media only screen and (max-width:320px){
+    .footer{
+        margin:1.3rem;
+        padding: 1px;
+        
+    }
+    .footer__main{
+       display:grid;
+       grid-template-columns: repeat(2,9rem);
+       grid-template-rows: repeat(2, 9rem);
+       grid-gap: .3rem;
+       justify-content: initial;
+       margin-bottom: 1rem;
+       
+    }
+    ul{
+        margin:1rem 0;
+        width: 8rem;
+    }
+    ul li{
+        margin-bottom: 1px;
+    }
+    ul li a{
+        font-size: .8rem;
+    }
+}

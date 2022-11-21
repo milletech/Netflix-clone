@@ -5,65 +5,57 @@ import requests from '../requests';
 import "../styles/Banner.css"
 
 function Banner() {
-    const [movie,setMovie]=useState([]);
-
-    useEffect(()=>{
-        async function fetchData(){
-            const request=await axios.get(requests.fetchNetflixOriginals);
-
-            setMovie(request.data.results[Math.floor(Math.random()*request.data.results.length-1)])
-            
-        }
-
-        fetchData();
-
-    },[]);
-
-    // console.log(movie)
-    // function truncateString(str, num) {
-    //     console.log(str)
-    //     if (str.length > num) {
-    //       return str.slice(0, num) + "...";
-    //     } else {
-    //       return str;
-    //     }
-    // }
-
-    //console.log(movie)
+    const [movie, setMovie] = useState([]);
+    const [currentIndex, setCurrentIndex] = useState(0);
+  
+    useEffect(() => {
+      async function fetchData() {
+        const request = await axios.get(requests.fetchNetflixOriginals);
+        setMovie(request.data.results);
+      }
+      fetchData();
+    }, []);
+  
+    const updateIndex = () => {
+      if (currentIndex < movie.length) {
+        const nextIndex = currentIndex + 1;
+        setCurrentIndex(nextIndex);
+      }
+      if (currentIndex === movie.length - 1) {
+        setCurrentIndex(0);
+      }
+    };
+  
+    setTimeout(updateIndex, 6000);
+  
     return (
-        <header className='banner'
+      <header
+        className="banner"
         style={{
-            backgroundSize:"cover",
-            backgroundImage:`url("https://image.tmdb.org/t/p/original/${movie?.backdrop_path}")`,
-            backgroundPosition:"top"
+          backgroundSize: "cover",
+          backgroundImage: `url("https://image.tmdb.org/t/p/original/${movie[currentIndex]?.backdrop_path}")`,
+          backgroundPosition: "top",
+          transition: "all ease-in .5s",
         }}
-        >
-
-            <div className="banner__contents">
-                {/* Title */}
-                <h1 className='banner__title'>
-                    {movie?.title || movie?.name || movie?.original_name}
-                </h1>
-                {/* div with 2 buttons */}
-                <div className="banner__buttons">
-                    <button className="banner__button">Play</button>
-                    <button className="banner__button">My List</button>
-                </div>
-                {/* description */}
-
-                
-                <h1 className="banner__description">
-                    
-                    {movie?.overview}
-                    
-                    {/* {truncateString(movie?.overview,150)} */}
-                </h1>
-            </div>
-
-            <div className="banner--fadeBottom"/>
-
-        </header>
-    )
-}
-
-export default Banner;
+      >
+        <div className="banner__contents">
+          <h1 className="banner__title">
+            {movie[currentIndex]?.title ||
+              movie[currentIndex]?.name ||
+              movie[currentIndex]?.original_name}
+          </h1>
+  
+          <div className="banner__buttons">
+            <button className="banner__button">Play</button>
+            <button className="banner__button">My List</button>
+          </div>
+  
+          <h1 className="banner__description">{movie[currentIndex]?.overview}</h1>
+        </div>
+  
+        <div className="banner--fadeBottom" />
+      </header>
+    );
+  }
+  
+  export default Banner;

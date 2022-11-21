@@ -1,5 +1,19 @@
 
 .container{
-    padding:50px;
-    text-align: center;
+    padding:10px;
+    margin:70px auto;
+    
+}
+
+.container h2{
+    color: #ddd;
+    margin-top: 4rem;
+    margin-bottom: 1rem;
+}
+
+.container__main{
+    display:grid;
+    grid-template-columns: auto auto auto auto auto auto;
+    grid-row-gap: 10px;
+    grid-column-gap: 10px;
 }
