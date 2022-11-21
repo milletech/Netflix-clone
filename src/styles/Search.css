@@ -9,11 +9,71 @@
     color: #ddd;
     margin-top: 4rem;
     margin-bottom: 1rem;
+    margin-left: 3rem;
 }
 
 .container__main{
     display:grid;
-    grid-template-columns: auto auto auto auto auto auto;
-    grid-row-gap: 10px;
-    grid-column-gap: 10px;
+    grid-template-columns:repeat(6, 11rem);
+    grid-template-rows:repeat(4, 15.5rem);
+    grid-row-gap: 1rem;
+    grid-column-gap:1rem;
+    padding: 1rem 3rem;
+}
+.row__posterLarge{
+    width: 11rem;
+    height: auto;
+}
+
+@media only screen and (max-width:425px){
+    .container__main{
+        display:grid;
+        grid-template-columns: repeat(2, 12rem);
+        grid-template-rows: repeat(10,16rem);
+        grid-row-gap: 15px;
+        grid-column-gap: 10px;
+        padding: .5rem;
+
+    }
+    .container h2{
+        margin-left: .5rem;
+    }
+    .row__posterLarge{
+        width: 12rem;
+    }
+    
+}
+@media only screen and (max-width:375px){
+    .container__main{
+        display:grid;
+        grid-template-columns: repeat(2, 10rem);
+        grid-template-rows: repeat(10,16rem);
+        grid-row-gap: 10px;
+        grid-column-gap: 10px;
+        padding: .5rem;
+
+    }
+    .container h2{
+        margin-left: .5rem;
+    }
+    .row__posterLarge{
+        width: 10rem;
+    }
+}
+@media only screen and (max-width:320px){
+    .container__main{
+        display:grid;
+        grid-template-columns: repeat(2, 9rem);
+        grid-template-rows: repeat(10,14rem);
+        grid-row-gap: 10px;
+        grid-column-gap: 10px;
+        padding: .2rem;
+    }
+    .container h2{
+        margin-left: .2rem;
+    }
+    .row__posterLarge{
+        width: 9rem;
+    }
+
 }
